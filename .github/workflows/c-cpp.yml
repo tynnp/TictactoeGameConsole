@@ -10,12 +10,12 @@ jobs:
   build:
     runs-on: windows-latest
     steps:
-    - uses: actions/checkout@v4
-    - name: Install compiler
-      run: choco install mingw
-    - name: Add mingw to PATH
-      run: echo "C:\ProgramData\chocolatey\lib\mingw\tools\install\mingw64\bin" >> $GITHUB_PATH
-    - name: Compile Tic-tac-toe.cpp
-      run: g++ Tic-tac-toe.cpp -o Tic-tac-toe
-    - name: Run the program (optional)
-      run: Tic-tac-toe
+      - uses: actions/checkout@v4
+      - name: Install compiler
+        run: choco install mingw
+      - name: Add mingw to PATH
+        run: echo "C:\ProgramData\chocolatey\lib\mingw\tools\install\mingw64\bin" >> $GITHUB_ENV
+      - name: Compile Tic-tac-toe.cpp
+        run: g++ Tic-tac-toe.cpp -o Tic-tac-toe.exe
+      - name: Run the program (optional)
+        run: .\Tic-tac-toe.exe
